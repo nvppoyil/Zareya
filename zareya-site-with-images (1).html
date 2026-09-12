@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zaréya — Pakistani Couture &amp; Kurtis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gold: #A6822C;
+    --gold-deep: #7C5E1E;
+    --gold-soft: #C9A75B;
+    --off-white: #F7F3EB;
+    --white: #FFFFFF;
+    --ink: #231F1A;
+    --ink-soft: #514C41;
+    --line: rgba(166,130,44,0.28);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--white);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Playfair Display',serif;
+    font-weight:500;
+    letter-spacing:0.01em;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 48px;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(247,243,235,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 48px;
+    max-width:1280px;margin:0 auto;
+  }
+  .brandmark{
+    display:flex;align-items:center;gap:10px;
+    font-family:'Playfair Display',serif;
+    font-size:26px;letter-spacing:0.14em;
+    color:var(--ink);
+  }
+  .brandmark span{color:var(--gold);}
+  .nav-links{display:flex;gap:40px;font-size:14px;letter-spacing:0.03em;}
+  .nav-links a{position:relative;padding-bottom:4px;color:var(--ink-soft);transition:color .25s;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a::after{
+    content:'';position:absolute;left:0;bottom:0;width:0;height:1px;
+    background:var(--gold);transition:width .3s ease;
+  }
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    display:flex;align-items:center;gap:8px;
+    font-size:13px;letter-spacing:0.04em;
+    border:1px solid var(--gold);
+    padding:10px 20px;
+    color:var(--gold-deep);
+    transition:background .25s, color .25s;
+  }
+  .nav-cta:hover{background:var(--gold);color:var(--white);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    height:92vh;min-height:640px;
+    display:flex;align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute;inset:0;
+    width:100%;height:100%;object-fit:cover;object-position:72% 20%;transform:scaleX(-1);
+  }
+  .hero::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(90deg, rgba(15,13,10,0.42) 0%, rgba(15,13,10,0.18) 42%, rgba(15,13,10,0.05) 72%), linear-gradient(180deg, rgba(15,13,10,0.05) 0%, rgba(15,13,10,0.15) 40%, rgba(15,13,10,0.82) 100%);
+  }
+  .hero-content{
+    position:relative;z-index:2;
+    color:var(--off-white);
+    padding:0 48px 72px;
+    max-width:1280px;margin:0 auto;width:100%;
+  }
+  .hero-eyebrow{
+    font-size:13px;letter-spacing:0.12em;color:var(--gold-soft);
+    margin-bottom:18px;
+    font-family:'Inter',sans-serif;
+  }
+  .hero h1{
+    font-size:clamp(40px,6vw,74px);
+    line-height:1.05;
+    max-width:640px;
+    color:var(--white);
+    font-weight:400;
+  }
+  .hero-sub{
+    margin-top:22px;font-size:16px;color:#EDE7D9;max-width:420px;line-height:1.6;
+    font-weight:300;
+  }
+  .hero-actions{margin-top:36px;display:flex;gap:18px;align-items:center;}
+  .btn-primary{
+    background:var(--gold);color:var(--white);
+    padding:16px 34px;font-size:13px;letter-spacing:0.06em;
+    transition:background .25s;
+  }
+  .btn-primary:hover{background:var(--gold-deep);}
+  .btn-ghost{
+    border:1px solid rgba(247,243,235,0.6);color:var(--white);
+    padding:15px 30px;font-size:13px;letter-spacing:0.06em;
+    transition:border-color .25s, color .25s;
+  }
+  .btn-ghost:hover{border-color:var(--gold-soft);color:var(--gold-soft);}
+
+  /* ---------- SECTION LABELS ---------- */
+  .section{padding:110px 0;}
+  .section-head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    margin-bottom:56px;gap:24px;flex-wrap:wrap;
+  }
+  .section-tag{
+    font-size:13px;color:var(--gold-deep);letter-spacing:0.08em;margin-bottom:10px;
+  }
+  .section-head h2{font-size:clamp(30px,3.4vw,44px);font-weight:500;}
+  .section-link{
+    font-size:14px;color:var(--ink-soft);border-bottom:1px solid var(--line);
+    padding-bottom:2px;white-space:nowrap;transition:color .25s,border-color .25s;
+  }
+  .section-link:hover{color:var(--gold-deep);border-color:var(--gold-deep);}
+
+  /* ---------- PRODUCT GRIDS ---------- */
+  .grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:36px;
+  }
+  .card{position:relative;}
+  .card-frame{
+    position:relative;overflow:hidden;aspect-ratio:3/4;
+    background:var(--off-white);
+    border:1px solid var(--line);
+  }
+  .card-frame img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .6s ease;
+  }
+  .card:hover .card-frame img{transform:scale(1.045);}
+  .badge{
+    position:absolute;top:16px;left:16px;
+    background:var(--off-white);color:var(--gold-deep);
+    font-size:11px;letter-spacing:0.08em;
+    padding:6px 12px;
+    border:1px solid var(--line);
+  }
+  .card-add{
+    position:absolute;left:16px;right:16px;bottom:16px;
+    background:rgba(35,31,26,0.88);color:var(--off-white);
+    text-align:center;padding:13px 0;font-size:13px;letter-spacing:0.05em;
+    opacity:0;transform:translateY(8px);
+    transition:opacity .3s ease, transform .3s ease;
+  }
+  .card:hover .card-add{opacity:1;transform:translateY(0);}
+  .card-meta{
+    display:flex;justify-content:space-between;align-items:baseline;
+    margin-top:18px;
+  }
+  .card-name{font-family:'Inter',sans-serif;font-size:17px;font-weight:500;}
+  .card-sub{font-size:12.5px;color:var(--ink-soft);margin-top:3px;}
+  .card-price{font-size:15px;color:var(--gold-deep);}
+
+  /* ---------- BEST SELLERS (off-white) ---------- */
+  .best-sellers{background:var(--white);}
+
+  /* ---------- FEATURED (white, 4-up) ---------- */
+  .featured{background:var(--off-white);}
+  .grid-4{grid-template-columns:repeat(4,1fr);gap:28px;}
+
+  /* ---------- BRAND INTRO ---------- */
+  .intro{
+    background:var(--white);
+    padding:130px 0;
+    border-top:1px solid var(--line);
+  }
+  .intro-inner{
+    display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center;
+  }
+  .intro-image{aspect-ratio:4/5;overflow:hidden;}
+  .intro-image img{width:100%;height:100%;object-fit:cover;object-position:top;}
+  .flourish{
+    width:34px;height:2px;background:var(--gold);margin-bottom:28px;
+  }
+  .intro h2{font-size:clamp(28px,3.2vw,40px);line-height:1.2;margin-bottom:26px;font-weight:500;}
+  .intro p{
+    font-size:16px;line-height:1.85;color:var(--ink-soft);max-width:520px;margin-bottom:18px;
+    font-weight:300;
+  }
+  .intro-stats{display:flex;gap:52px;margin-top:40px;}
+  .stat-num{font-family:'Playfair Display',serif;font-size:32px;color:var(--gold-deep);}
+  .stat-label{font-size:12.5px;color:var(--ink-soft);letter-spacing:0.04em;margin-top:4px;}
+
+  /* ---------- STRIP / SALES HOOK ---------- */
+  .strip{
+    background:var(--ink);color:var(--off-white);
+    padding:70px 0;text-align:center;
+  }
+  .strip h3{
+    font-size:clamp(24px,2.6vw,34px);font-weight:400;margin-bottom:22px;
+    max-width:640px;margin-left:auto;margin-right:auto;line-height:1.35;
+  }
+  .strip .btn-primary{display:inline-block;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--ink);color:#C9C2B4;padding:70px 0 34px;}
+  .footer-grid{
+    display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;
+    padding-bottom:52px;border-bottom:1px solid rgba(247,243,235,0.12);
+  }
+  .footer-brand{font-family:'Playfair Display',serif;font-size:26px;color:var(--off-white);letter-spacing:0.1em;margin-bottom:14px;}
+  .footer-brand span{color:var(--gold-soft);}
+  .footer-tagline{font-size:14px;line-height:1.7;color:#9A927E;max-width:280px;}
+  .footer-col h4{
+    font-family:'Inter',sans-serif;font-size:13px;letter-spacing:0.08em;
+    color:var(--off-white);margin-bottom:20px;font-weight:500;
+  }
+  .footer-col a{
+    display:block;font-size:14px;color:#9A927E;margin-bottom:12px;
+    transition:color .25s;
+  }
+  .footer-col a:hover{color:var(--gold-soft);}
+  .footer-bottom{
+    display:flex;justify-content:space-between;padding-top:28px;
+    font-size:12.5px;color:#75705F;flex-wrap:wrap;gap:12px;
+  }
+
+  @media (max-width:960px){
+    .wrap,.nav{padding-left:24px;padding-right:24px;}
+    .nav-links{display:none;}
+    .grid{grid-template-columns:repeat(2,1fr);}
+    .grid-4{grid-template-columns:repeat(2,1fr);}
+    .intro-inner{grid-template-columns:1fr;gap:44px;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .section{padding:76px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brandmark">ZAR<span>É</span>YA</div>
+    <nav class="nav-links">
+      <a href="#shop">Shop</a>
+      <a href="#bestsellers">Best Sellers</a>
+      <a href="#about">Our Story</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="#">Order on WhatsApp</a>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="https://images.pexels.com/photos/35485439/pexels-photo-35485439.jpeg?auto=compress&cs=tinysrgb&w=1800" alt="Zaréya couture ensemble">
+  <div class="hero-content">
+    <div class="hero-eyebrow">PAKISTANI COUTURE &amp; KURTIS</div>
+    <h1>The art of Pakistani<br>elegance, made to be worn.</h1>
+    <p class="hero-sub">Curated, contemporary, timeless ensembles — handpicked from Pakistan's finest ateliers, delivered across India and the UAE.</p>
+    <div class="hero-actions">
+      <a href="#shop" class="btn-primary">Shop the Collection</a>
+      <a href="#bestsellers" class="btn-ghost">View Best Sellers</a>
+    </div>
+  </div>
+</section>
+
+<section class="section best-sellers" id="bestsellers">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">MOST LOVED</div>
+        <h2>Best Sellers</h2>
+      </div>
+      <a href="#shop" class="section-link">View all products</a>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-frame">
+          <span class="badge">Bestseller</span>
+          <img src="https://images.pexels.com/photos/36325924/pexels-photo-36325924.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Zaréya 2044A">
+          <div class="card-add">Add to Cart</div>
+        </div>
+        <div class="card-meta">
+          <div>
+            <div class="card-name">Zaréya 2044A</div>
+            <div class="card-sub">Chikankari Cotton Suit</div>
+          </div>
+          <div class="card-price">₹6,499</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-frame">
+          <span class="badge">Bestseller</span>
+          <img src="https://images.pexels.com/photos/22064213/pexels-photo-22064213.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Zaréya emerald suit" style="object-position:center 15%;">
+          <div class="card-add">Add to Cart</div>
+        </div>
+        <div class="card-meta">
+          <div>
+            <div class="card-name">Zaréya Emerald Aina</div>
+            <div class="card-sub">Embellished Net Suit</div>
+          </div>
+          <div class="card-price">₹12,999</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-frame">
+          <span class="badge">New</span>
+          <img src="https://images.pexels.com/photos/22064228/pexels-photo-22064228.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Zaréya suit detail" style="object-position:top;">
+          <div class="card-add">Add to Cart</div>
+        </div>
+        <div class="card-meta">
+          <div>
+            <div class="card-name">Zaréya Noor</div>
+            <div class="card-sub">Digital Print Dupatta Set</div>
+          </div>
+          <div class="card-price">₹5,299</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section featured" id="shop">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">THE EDIT</div>
+        <h2>Featured Pret</h2>
+      </div>
+      <a href="#" class="section-link">Browse full collection</a>
+    </div>
+    <div class="grid grid-4">
+      <div class="card">
+        <div class="card-frame">
+          <img src="https://images.pexels.com/photos/14256948/pexels-photo-14256948.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Zaréya suit">
+          <div class="card-add">Add to Cart</div>
+        </div>
+        <div class="card-meta">
+          <div>
+            <div class="card-name">Zaréya 2044A</div>
+            <div class="card-sub">Cotton · Chikankari</div>
+          </div>
+          <div class="card-price">₹6,499</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-frame">
+          <img src="https://images.pexels.com/photos/29413533/pexels-photo-29413533.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Zaréya suit" style="object-position:center 15%;">
+          <div class="card-add">Add to Cart</div>
+        </div>
+        <div class="card-meta">
+          <div>
+            <div class="card-name">Emerald Aina</div>
+            <div class="card-sub">Net · Embellished</div>
+          </div>
+          <div class="card-price">₹12,999</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-frame">
+          <img src="https://images.pexels.com/photos/29413566/pexels-photo-29413566.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Zaréya suit" style="object-position:bottom;">
+          <div class="card-add">Add to Cart</div>
+        </div>
+        <div class="card-meta">
+          <div>
+            <div class="card-name">Zaréya Noor</div>
+            <div class="card-sub">Digital Print Set</div>
+          </div>
+          <div class="card-price">₹5,299</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-frame">
+          <img src="https://images.pexels.com/photos/29413653/pexels-photo-29413653.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Zaréya suit" style="object-position:right center;">
+          <div class="card-add">Add to Cart</div>
+        </div>
+        <div class="card-meta">
+          <div>
+            <div class="card-name">Zaréya Meraki</div>
+            <div class="card-sub">Organza · Handwork</div>
+          </div>
+          <div class="card-price">₹10,199</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-frame">
+          <img src="https://images.pexels.com/photos/20792015/pexels-photo-20792015.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Zaréya suit" style="object-position:center;">
+          <div class="card-add">Add to Cart</div>
+        </div>
+        <div class="card-meta">
+          <div>
+            <div class="card-name">Zaréya Aanchal</div>
+            <div class="card-sub">Cotton · Digital Print</div>
+          </div>
+          <div class="card-price">₹4,899</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-frame">
+          <img src="https://images.pexels.com/photos/31874432/pexels-photo-31874432.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Zaréya suit" style="object-position:left center;">
+          <div class="card-add">Add to Cart</div>
+        </div>
+        <div class="card-meta">
+          <div>
+            <div class="card-name">Zaréya Sitara</div>
+            <div class="card-sub">Net · Handwork</div>
+          </div>
+          <div class="card-price">₹11,499</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-frame">
+          <img src="https://images.pexels.com/photos/31874432/pexels-photo-31874432.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Zaréya suit" style="object-position:right;">
+          <div class="card-add">Add to Cart</div>
+        </div>
+        <div class="card-meta">
+          <div>
+            <div class="card-name">Zaréya Rooh</div>
+            <div class="card-sub">Chikankari · Cotton</div>
+          </div>
+          <div class="card-price">₹7,299</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-frame">
+          <img src="https://images.pexels.com/photos/31874432/pexels-photo-31874432.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Zaréya suit" style="object-position:top;">
+          <div class="card-add">Add to Cart</div>
+        </div>
+        <div class="card-meta">
+          <div>
+            <div class="card-name">Zaréya Anaya</div>
+            <div class="card-sub">Organza · Embellished</div>
+          </div>
+          <div class="card-price">₹13,799</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="intro" id="about">
+  <div class="wrap intro-inner">
+    <div class="intro-image">
+      <img src="https://images.pexels.com/photos/31874432/pexels-photo-31874432.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Zaréya craftsmanship">
+    </div>
+    <div>
+      <div class="flourish"></div>
+      <div class="section-tag">OUR STORY</div>
+      <h2>Tradition meets timeless elegance.</h2>
+      <p>Zaréya was born from a simple belief — that Pakistani craftsmanship deserves a home outside the wedding season and the gallery shelf. Every piece we carry is chosen for its handwork, its fabric, and the way it moves.</p>
+      <p>From heavy chikankari cottons to fine embellished nets, our edit spans everyday pret to occasion couture — sourced from Pakistan's ateliers, styled for wardrobes in India and the UAE.</p>
+      <div class="intro-stats">
+        <div>
+          <div class="stat-num">2</div>
+          <div class="stat-label">Countries served</div>
+        </div>
+        <div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Handpicked pieces</div>
+        </div>
+        <div>
+          <div class="stat-num">1:1</div>
+          <div class="stat-label">Personal WhatsApp styling</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="strip">
+  <div class="wrap">
+    <h3>Found something you love? Add it to your cart and check out in one message on WhatsApp — no forms, no waiting.</h3>
+    <a href="#" class="btn-primary">Start Shopping</a>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">ZAR<span>É</span>YA</div>
+        <p class="footer-tagline">The art of Pakistani elegance. Curated, contemporary, timeless couture and kurtis — India &amp; UAE.</p>
+      </div>
+      <div class="footer-col">
+        <h4>SHOP</h4>
+        <a href="#">Best Sellers</a>
+        <a href="#">New Arrivals</a>
+        <a href="#">Pret Collection</a>
+      </div>
+      <div class="footer-col">
+        <h4>SUPPORT</h4>
+        <a href="#">Size Guide</a>
+        <a href="#">Shipping — India &amp; UAE</a>
+        <a href="#">Order on WhatsApp</a>
+      </div>
+      <div class="footer-col">
+        <h4>FOLLOW</h4>
+        <a href="#">Instagram — @zareya.official_</a>
+        <a href="#">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Zaréya. All rights reserved.</span>
+      <span>Pakistani Couture &amp; Kurtis</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
